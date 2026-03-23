@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { supbase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
     }
 
     // Check if user is admin
-    const { data: profile } = await supbase
+    const { data: profile } = await supabase
       .from('user_profiles')
       .select('role')
       .eq('id', user.id)
@@ -81,7 +81,7 @@ export default function AdminDashboard() {
   const loadDashboardData = async () => {
     try {
       // Load vendor applications
-      const { data: appsData, error: appsError } = await supbase
+      const { data: appsData, error: appsError } = await supabase
         .from('vendor_applications')
         .select('*')
         .order('created_at', { ascending: false });
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
       setApplications(appsData || []);
 
       // Load vendor billing summary
-      const { data: vendorsData, error: vendorsError } = await supbase
+      const { data: vendorsData, error: vendorsError } = await supabase
         .from('vendor_billing_summary')
         .select('*')
         .order('monthly_revenue', { ascending: false });
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
     try {
       const newStatus = action === 'approve' ? 'approved' : 'rejected';
       
-      const { error } = await supbase
+      const { error } = await supabase
         .from('vendor_applications')
         .update({ status: newStatus })
         .eq('id', applicationId);
