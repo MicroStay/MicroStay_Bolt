@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { BoltDatabase } from '@/lib/supabase';
+import { supbase } from '@/lib/supabase';
 import { Building, DollarSign, Calendar, Users, TrendingUp, FileText, Settings, LogOut, Bell } from 'lucide-react';
 
 interface VendorProfile {
@@ -63,7 +63,7 @@ export default function VendorDashboard() {
 
   async function loadVendorData(userId: string) {
     try {
-      const { data: vendorData, error: vendorError } = await BoltDatabase
+      const { data: vendorData, error: vendorError } = await supbase
         .from('vendor_profiles')
         .select('*')
         .eq('user_id', userId)
@@ -73,7 +73,7 @@ export default function VendorDashboard() {
 
       setVendor(vendorData);
 
-      const { data: bookingsData, error: bookingsError } = await BoltDatabase
+      const { data: bookingsData, error: bookingsError } = await supbase
         .from('bookings')
         .select('*')
         .eq('vendor_id', vendorData.id)
