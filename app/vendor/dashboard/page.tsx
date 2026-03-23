@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Bolt Database } from '@/lib/supabase';
-import { Building2, DollarSign, Calendar, Users, TrendingUp, FileText, Settings, LogOut, Bell } from 'lucide-react';
+import { Building, DollarSign, Calendar, Users, TrendingUp, FileText, Settings, LogOut, Bell } from 'lucide-react';
 
 interface VendorProfile {
   id: string;
