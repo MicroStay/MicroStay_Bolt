@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Bolt Database } from '@/lib/supabase';
+import { BoltDatabase } from '@/lib/supabase';
 import { Building, DollarSign, Calendar, Users, TrendingUp, FileText, Settings, LogOut, Bell } from 'lucide-react';
 
 interface VendorProfile {
