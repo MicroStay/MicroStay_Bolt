@@ -195,7 +195,7 @@ export default function AdminDashboard() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Vendors</CardTitle>
-            <Building2 className="h-4 w-4 text-purple-600" />
+            <Building className="h-4 w-4 text-purple-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{billingData.active_vendors}</div>
@@ -316,7 +316,7 @@ export default function AdminDashboard() {
             <CardContent>
               {vendors.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
-                  <Building2 className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                  <Building className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p>No active vendors</p>
                 </div>
               ) : (
@@ -398,7 +398,7 @@ export default function AdminDashboard() {
                         {formatCurrency(billingData.total_monthly_revenue - billingData.total_commission)}
                       </p>
                     </div>
-                    <Building2 className="h-8 w-8 text-purple-600" />
+                    <Building className="h-8 w-8 text-purple-600" />
                   </div>
                 </div>
               </CardContent>
