@@ -66,7 +66,7 @@ export default function AdminDashboard() {
     }
 
     // Check if user is admin
-    const { data: profile } = await Bolt Database
+    const { data: profile } = await BoltDatabase
       .from('user_profiles')
       .select('role')
       .eq('id', user.id)
@@ -81,7 +81,7 @@ export default function AdminDashboard() {
   const loadDashboardData = async () => {
     try {
       // Load vendor applications
-      const { data: appsData, error: appsError } = await Bolt Database
+      const { data: appsData, error: appsError } = await BoltDatabase
         .from('vendor_applications')
         .select('*')
         .order('created_at', { ascending: false });
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
       setApplications(appsData || []);
 
       // Load vendor billing summary
-      const { data: vendorsData, error: vendorsError } = await Bolt Database
+      const { data: vendorsData, error: vendorsError } = await BoltDatabase
         .from('vendor_billing_summary')
         .select('*')
         .order('monthly_revenue', { ascending: false });
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
     try {
       const newStatus = action === 'approve' ? 'approved' : 'rejected';
       
-      const { error } = await Bolt Database
+      const { error } = await BoltDatabase
         .from('vendor_applications')
         .update({ status: newStatus })
         .eq('id', applicationId);
