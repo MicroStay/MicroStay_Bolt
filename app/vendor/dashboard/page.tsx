@@ -63,7 +63,7 @@ export default function VendorDashboard() {
 
   async function loadVendorData(userId: string) {
     try {
-      const { data: vendorData, error: vendorError } = await Bolt Database
+      const { data: vendorData, error: vendorError } = await BoltDatabase
         .from('vendor_profiles')
         .select('*')
         .eq('user_id', userId)
@@ -73,7 +73,7 @@ export default function VendorDashboard() {
 
       setVendor(vendorData);
 
-      const { data: bookingsData, error: bookingsError } = await Bolt Database
+      const { data: bookingsData, error: bookingsError } = await BoltDatabase
         .from('bookings')
         .select('*')
         .eq('vendor_id', vendorData.id)
